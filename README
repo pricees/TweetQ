@@ -1,0 +1,35 @@
+This is a simple queueing class that I wrote for fun.
+
+Twitter currently allows only 20 status updates per hour, however you can get whitelisted and have the max go up to 20 000.
+
+Just download the file and add it to any existing project
+
+Required Libraries:
+	Net::HTTP
+	JSON
+		
+Example:
+
+	thingsToDo = TweetQ.new(USERNAME, PASSWORD)
+
+Add 
+
+	thingsToDo.queue "Go run, you are fat!"
+
+[....some time later....]
+
+Get whats next
+
+	tweets = MyQ.dequeue
+
+See them
+	tweets.each { |t| puts t }
+
+Delete them from twitter
+	tweets.each { |t| t.destroy }
+
+See everything in memory from this session
+	
+	thingsToDo.master_queue.each { |t| puts t }
+
+
